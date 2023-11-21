@@ -54,13 +54,13 @@ export default {
                         <input @click="selectTypology(typology)" :checked="typology.checked" class="form-check-input"
                             type="checkbox" :value="typology.name" :id="typology.name">
                         <label class="form-check-label" :for="typology.name">
-                            {{ typology.name }}
+                            {{ typology.name.charAt(0).toUpperCase() + typology.name.slice(1)}}
                         </label>
                     </div>
                 </div>
             </div>
-            <div class="row g-5" v-if="store.filteredRestaurants && store.filteredRestaurants.length > 0">
-                <transition-group tag="div" name="fade" mode="in-out" class="row g-5">
+            <div class="row g-5 justify-content-center" v-if="store.filteredRestaurants && store.filteredRestaurants.length > 0">
+                <transition-group tag="div" name="fade" mode="in-out" class="row g-5 p-0">
                     <div class="col-12 col-sm-6 col-md-4 col-xl-3" v-for="restaurant in store.filteredRestaurants"
                         :key="restaurant.id">
                         <router-link :to="{ name: 'restaurant', params: { slug: restaurant.slug } }"

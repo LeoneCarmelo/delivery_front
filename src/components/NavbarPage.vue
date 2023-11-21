@@ -68,20 +68,24 @@ export default {
 
 <template>
     <div>
-        <nav class="navbar navbar-expand-sm justify-content-around shadow">
-            <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
-                data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
-                aria-label="Toggle navigation"></button>
-            <a :href="go_to_front_end" class="d-flex gap-2 align-items-center text-decoration-none">
-                <div class="logo">
-                    <img src="/public/img/delivelogo.png" alt="" class="" width="60" loading="lazy">
-                    <img src="/public/img/moto.png" alt="" class="moto" loading="lazy">
-                </div>
-                <h2 id="deliveboo" class="fs-2 mb-0">Deliveboo</h2>
-            </a>
+        <nav class="navbar navbar-expand-md justify-content-around shadow">
+            <div class="d-flex justify-content-evenly justify-content-md-start ps-md-5 ms-md-5 w-100">
+                <button class="navbar-toggler d-lg-none order-1" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <i class="fa-solid fa-bars text-orange fs-1"></i>
+                </button>
+                <a :href="go_to_front_end" class="d-flex gap-2 align-items-center order-0 text-decoration-none">
+                    <div class="logo">
+                        <img src="/public/img/delivelogo.png" alt="" class="" width="60" loading="lazy">
+                        <img src="/public/img/moto.png" alt="" class="moto" loading="lazy">
+                    </div>
+                    <h2 id="deliveboo" class="fs-2 mb-0">Deliveboo</h2>
+                </a>
+            </div>
 
-            <div class="collapse navbar-collapse justify-content-end align-items-center" id="collapsibleNavId">
-                <ul class="navbar-nav mt-2 mt-lg-0 px-5">
+            <div class="collapse navbar-collapse justify-content-end align-items-center order-2 flex-grow-1 pe-md-5" id="collapsibleNavId">
+                <ul class="navbar-nav flex-row justify-content-evenly py-3 py-md-0">
                     <li class="nav-item mx-2">
                         <router-link to="/restaurants" class="nav-link fs-3 fw-semibold">Ristoranti</router-link>
                     </li>
@@ -89,7 +93,8 @@ export default {
                         <a :href="go_to_login" class="nav-link fs-3 fw-semibold">Accedi</a>
                     </li>
                     <li class="nav-item mx-2">
-                        <router-link to="/cart" class="nav-link fs-3 fw-semibold cart">
+                        <router-link to="/cart"
+                            class="nav-link fs-3 fw-semibold cart d-flex justify-content-center align-items-center px-3 me-md-3">
                             <i class="fa-solid fa-cart-shopping text-white"></i>
                             <span class="ms-2">{{ totalDishesCart() }}</span>
                         </router-link>
@@ -109,8 +114,15 @@ export default {
     position: fixed;
     z-index: 1;
     width: 100%;
-    height: 90px;
+    height: auto;
     background-color: $d-boo-darker;
+
+    .navbar-toggler {
+        &:focus {
+            color: $d-boo-orange;
+        }
+
+    }
 
     .nav-link {
         color: $d-boo-orange;
@@ -158,6 +170,11 @@ export default {
         }
 
 
+    }
+}
+@media screen and (min-width > 768px) {
+    .navbar{
+        height: 90px;
     }
 }
 </style>
