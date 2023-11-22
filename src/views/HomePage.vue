@@ -34,10 +34,10 @@ export default {
       <div class="alert alert-success mb-0" v-if="$route.params.message">
         <p class="mb-0 p-0">{{ $route.params.message }}</p>
       </div>
-      <div class="container h-100 d-flex flex-column justify-content-center">
-        <h1 class="w-50">Seleziona il tipo di ristorante e scegli cosa mangiare</h1>
-        <div class="row">
-          <div class="col">
+      <div class="container h-100 d-flex flex-column justify-content-end justify-content-md-center">
+        <div class="row justify-content-center justify-content-md-start">
+          <div class="col mb-4">
+            <h1 class="">Seleziona il tipo di ristorante e scegli cosa mangiare</h1>
             <SearchBar />
           </div>
         </div>
@@ -56,7 +56,7 @@ export default {
 main {
   height: 100vh;
   background: url('./img/cheesburger.png'), linear-gradient(122deg, $d-boo-background 50%, $d-boo-orange 50%);
-  background-position: top 50% right 10%, center;
+
   background-repeat: no-repeat;
 
   .alert-success {
@@ -65,5 +65,25 @@ main {
     width: 100%;
   }
 
+}
+
+@media screen and (max-width: 768px) {
+  main {
+    background-position: top 50% right 50%, center;
+  }
+  h1 {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  main {
+    background-position: top 50% right 10%, center;
+  }
+  h1 {
+    width: 50%;
+    text-align: start;
+  }
 }
 </style>

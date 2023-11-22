@@ -2,11 +2,11 @@
 export default {
   name: 'StaticSections',
   mounted() {
-    var image = document.querySelector('.thumbnail');
+    let image = document.querySelector('.thumbnail');
     let parallaxed = new simpleParallax(image);
     parallaxed.settings.orientation = 'right'
     parallaxed.settings.overflow = true
-    parallaxed.settings.scale = 5
+    parallaxed.settings.scale = 3
   }
 }
 </script>
