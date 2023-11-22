@@ -9,8 +9,7 @@
 			<div class="container">
 				<div class="row pt-5 text-center">
 					<div class="col-12 col-md-6 col-lg-3 gap-3">
-						<h3 class="text-center text-md-start">Scopri Deliveroo</h3>
-
+						<h3 class="text-center text-md-start">Scopri Deliveboo</h3>
 						<ul class="d-flex flex-column align-items-center align-items-md-start gap-3 mt-4 list-unstyled">
 							<li><a href="#">Investitori</a></li>
 							<li><a href="#">Chi siamo</a></li>
