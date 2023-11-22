@@ -12,7 +12,7 @@ export default {
 
         this.fetchRestaurants()
         store.getAllTypologies()
-    
+
     },
     methods: {
         fetchRestaurants() {
@@ -30,9 +30,9 @@ export default {
                     store.filteredRestaurants = response.data.restaurants;
                 })
         },
-        selectTypology(typology){
+        selectTypology(typology) {
             //check or decheck
-            typology.checked = !typology.checked 
+            typology.checked = !typology.checked
             //console.log(store.typologies)
             store.checkedTypologies = store.typologies.filter(typologyChecked => typologyChecked.checked).map(typ => typ.id)
             //console.log(store.checkedTypologies, 'checked typologies')
@@ -46,20 +46,20 @@ export default {
 <template>
     <main class="restaurants" :class="store.filteredRestaurants && store.filteredRestaurants.length === 0 ? 'vh-100' : ''">
         <div class="container text-center align">
-            <h1 class="my-5 text-white fw-semibold">Ristoranti</h1>
-            <div class="text-center text-white">
-                <h4>Filtra</h4>
+            <h1 class="my-5 text-white fw-semibold">Scegli il tuo <span class="text-orange">preferito</span>.</h1>
+            <div class="text-center text-white cont-check">
                 <div class="text-white d-flex justify-content-center gap-3 flex-wrap">
                     <div class="form-check d-flex gap-1" v-for="typology in store.typologies">
                         <input @click="selectTypology(typology)" :checked="typology.checked" class="form-check-input"
                             type="checkbox" :value="typology.name" :id="typology.name">
                         <label class="form-check-label" :for="typology.name">
-                            {{ typology.name.charAt(0).toUpperCase() + typology.name.slice(1)}}
+                            {{ typology.name.charAt(0).toUpperCase() + typology.name.slice(1) }}
                         </label>
                     </div>
                 </div>
             </div>
-            <div class="row g-5 justify-content-center" v-if="store.filteredRestaurants && store.filteredRestaurants.length > 0">
+            <div class="row g-5 justify-content-center"
+                v-if="store.filteredRestaurants && store.filteredRestaurants.length > 0">
                 <transition-group tag="div" name="fade" mode="in-out" class="row g-5 p-0">
                     <div class="col-12 col-sm-6 col-md-4 col-xl-3" v-for="restaurant in store.filteredRestaurants"
                         :key="restaurant.id">
@@ -115,6 +115,29 @@ main.restaurants {
     background-size: cover;
     position: relative;
     padding: 90px 1rem 6rem;
+
+    .cont-check {
+        border-bottom:3px solid $d-boo-orange;
+        border-top:3px solid $d-boo-orange;
+        padding:0.3rem 0;
+
+        .form-check-input[data-v-a70dba35] {
+            background-color: transparent;
+    
+            &:focus {
+                border-color: $d-boo-orange-light;
+                outline: 0;
+                box-shadow: 0 0 0 0.25rem rgba(40, 43, 47, 0.25);
+            }
+    
+            &:checked {
+                background-color: $d-boo-orange-light;
+                border-color: $d-boo-orange;
+            }
+        }
+    }
+
+
 
     .card {
         cursor: pointer;

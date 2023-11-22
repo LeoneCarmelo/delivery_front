@@ -118,8 +118,10 @@ export default {
     background-color: $d-boo-darker;
 
     .navbar-toggler {
-        &:focus {
+
+        &:active {
             color: $d-boo-orange;
+            border: 3px solid #3d2d00;
         }
 
     }
